@@ -2,8 +2,10 @@
 -- Similar to exercise 5
 select film.title
 from film
-left join film_actor
-    on film_actor.film_id = film.film_id
-left join actor
-    on film_actor.actor_id = actor.actor_id
+left join inventory
+    on film.film_id = inventory.film_id
+left join rental
+    on inventory.inventory_id = rental.inventory_id
+left join customer
+    on rental.customer_id = customer.customer_id
     where customer.first_name = 'Roberta'
